@@ -1,0 +1,3 @@
+C:/Users/MyShirt/CLionProjects/FWI/CUDA_fwi/cmake-build-debug/CMakeFiles/FWI.dir
+C:/Users/MyShirt/CLionProjects/FWI/CUDA_fwi/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/MyShirt/CLionProjects/FWI/CUDA_fwi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

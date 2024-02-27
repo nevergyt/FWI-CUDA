@@ -1,0 +1,17 @@
+# ninja log v5
+1	118	7307201679682531	build.ninja	84064c758542dc72
+5	6245	7307194126939075	CMakeFiles/FWI.dir/main.cu.obj	28c56ab4e00fcd64
+4943	7312	7306476316183714	CMakeFiles/FWI.dir/cmake_device_link.obj	622f20967f838717
+7312	7729	7306476320312672	FWI.exe	f1e3e2a24d2f43bd
+17	5184	7307194116277584	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_constants.cu.obj	58458f486ad57662
+11	6958	7307194134069994	CMakeFiles/FWI.dir/fwi_main.cu.obj	bd15af6ed6447a6a
+1	110	7307201679682531	build.ninja	84064c758542dc72
+44	5665	7307201736430736	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_constants.cu.obj	99d6c17669d5454e
+5	6975	7307201749545674	CMakeFiles/FWI.dir/main.cu.obj	883823b16506d92a
+24	6884	7307211115601833	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_sched.cu.obj	620cc67684818833
+12	6134	7307213691168340	CMakeFiles/FWI.dir/fwi_main.cu.obj	24083d22c1791db1
+18	6220	7307215056032367	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_kernel.cu.obj	c623e699c259d77
+5	6321	7307218316162565	CMakeFiles/FWI.dir/fwi_main.cu.obj	24083d22c1791db1
+25	6357	7307218316541552	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_sched.cu.obj	620cc67684818833
+12	6440	7307218317349387	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_common.cu.obj	4513d11ef171e820
+18	6444	7307218317399250	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_kernel.cu.obj	c623e699c259d77

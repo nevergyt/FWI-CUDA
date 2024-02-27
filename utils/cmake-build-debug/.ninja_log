@@ -1,0 +1,17 @@
+# ninja log v5
+42	190	7255458051080460	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_generatemodel.c.obj	5c2d11b8ea1ed53b
+32	241	7255458051589094	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_kernel.c.obj	24b85043985724a3
+13	169	7255458050851079	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_sched.c.obj	49c054e0e689b13e
+23	267	7255458051848402	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/0_version_openmp/fwi_propagator.c.obj	ede8660d116f4d7f
+267	473	7255458053872992	generateModel.bin.exe	cb3d232b2fe913ec
+3	183	7255458051000675	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_common.c.obj	cc429f0e2b498688
+34	192	7255457988557529	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_sched.c.obj	e8c4e149fc48aa62
+12	708	7247754591488886	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_constants.c.obj	22f746dfb671b99
+43	185	7255457988487728	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_schedule.c.obj	6bc96a5be409b88d
+13	1356	7252102911362563	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_constants.c.obj	67133e6cdc1b770f
+14	195	7255457988587469	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_common.c.obj	58df6300f30036b
+3	210	7255457988737052	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_kernel.c.obj	eafe630eed5e8b63
+23	252	7255457989165904	CMakeFiles/generateSchedule.bin.dir/F_/fwi/BSC-FWI-master/0_version_openmp/fwi_propagator.c.obj	b214b0328a7414cf
+252	492	7255457991509642	generateSchedule.bin.exe	2e3f67ad033a3f04
+3	864	7256242251945190	CMakeFiles/generateModel.bin.dir/F_/fwi/BSC-FWI-master/common/fwi_common.c.obj	cc429f0e2b498688
+865	1463	7256242257887280	generateModel.bin.exe	cb3d232b2fe913ec

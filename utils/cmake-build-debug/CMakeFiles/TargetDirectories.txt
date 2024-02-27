@@ -1,0 +1,8 @@
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/generateModel.bin.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/generateSchedule.bin.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/list_install_components.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/install.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/install/local.dir
+F:/fwi/BSC-FWI-master/utils/cmake-build-debug/CMakeFiles/install/strip.dir
