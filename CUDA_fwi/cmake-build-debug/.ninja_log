@@ -52,3 +52,6 @@
 87	7996	7330613866535188	CMakeFiles/FWI.dir/fwi_propagator.cu.obj	c1adbcaac3fe8286
 7996	10486	7330613891530626	CMakeFiles/FWI.dir/cmake_device_link.obj	649a687a8d9547af
 10486	10704	7330613893437550	FWI.exe	5976b4c18f3670f6
+5	5660	7330614573435479	CMakeFiles/FWI.dir/C_/Users/MyShirt/CLionProjects/FWI/common/fwi_kernel.cu.obj	c623e699c259d77
+5661	8059	7330614597558621	CMakeFiles/FWI.dir/cmake_device_link.obj	649a687a8d9547af
+8060	8209	7330614598865128	FWI.exe	5976b4c18f3670f6
