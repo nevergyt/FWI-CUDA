@@ -34,7 +34,7 @@ inline double dtime(void)
     return (tseconds);
 };
 
-inline double TOGB(size_t bytes)
+double TOGB(size_t bytes)
 {
     return (bytes / (1024.f * 1024.f * 1024.f));
 };
@@ -347,24 +347,12 @@ void* __malloc( size_t alignment, const integer size)
     print_debug("alignment %d ,size %d",alignment,size);
     void *buffer;
     int error;
-   
-#if defined(__INTEL_COMPILER)
-    buffer = (void*) _mm_malloc( size, alignment );
 
-	if ( buffer == NULL )
-	{
-        print_error("Cant allocate buffer correctly");
-        abort();
-	}	
-
-
-#else 
     if( (error=posix_memalign( &buffer, alignment, size)) != 0)
     {
         print_error("Cant allocate buffer correctly");
         abort();
     }
-#endif
 
 
     return (buffer);
@@ -453,11 +441,9 @@ inline void safe_fwrite (void *ptr, size_t size, size_t nmemb, FILE *stream, cha
 #endif
 };
 
-inline void safe_fread (void *ptr, size_t size, size_t nmemb, FILE *stream, char* srcfilename, int linenumber)
+void safe_fread (void *ptr, size_t size, size_t nmemb, FILE *stream, char* srcfilename, int linenumber)
 {
-#if defined(DO_NOT_PERFORM_IO)
-    print_info("Warning: we are not doing any IO (called from %s).", __FUNCTION__);
-#else
+
     if( stream == NULL ){
         print_error("Invalid\n");
         abort();
@@ -477,7 +463,7 @@ inline void safe_fread (void *ptr, size_t size, size_t nmemb, FILE *stream, char
     
     double mbytes = (1.0 * size * nmemb) / (1024.0 * 1024.0);
 		print_stats("READ Time %lf, elements %lu bytes %lu, MB %lf MB/s %lf", end_t, nmemb, size*nmemb, mbytes, mbytes / end_t );
-#endif
+
 };
 
 

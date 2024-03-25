@@ -6,6 +6,16 @@
  * Ensures that the domain contains a minimum number of planes.
  * Just needed for debugging when running small cases.
  */
+
+void write_velocity_datafile(v_t     *v,
+                             s_t     *s,
+                             coeff_t *c,
+                             real    *rho,
+                             const integer dimmz,
+                             const integer dimmx,
+                             const integer dimmy);
+
+
 void check_domain_dimensions ( const integer dimmz,
                                const integer dimmx,
                                const integer dimmy);
@@ -25,10 +35,23 @@ void alloc_memory_shot( const integer dimmz,
                         v_t     *v,
                         real    **rho);
 
+void alloc_memory_shot_gpu( const integer dimmz,
+                        const integer dimmx,
+                        const integer dimmy,
+                        coeff_t *gpu_c,
+                        s_t     *gpu_s,
+                        v_t     *gpu_v,
+                        real    **gpu_rho);
+
 void free_memory_shot( coeff_t *c,
                        s_t     *s,
                        v_t     *v,
                        real    **rho);
+
+void free_memory_shot_gpu( coeff_t *gpu_c,
+                       s_t     *gpu_s,
+                       v_t     *gpu_v,
+                       real    **gpu_rho);
 
 void check_memory_shot( const integer dimmz,
 												const integer dimmx,
@@ -48,6 +71,31 @@ void load_local_velocity_model ( const real    waveletFreq,
                           s_t     *s,
                           v_t     *v,
                           real    *rho);
+
+void copy_velocity_model_ToGpu ( const integer dimmz,
+                                 const integer dimmx,
+                                 const integer FirstYPlane,
+                                 const integer LastYPlane,
+                                 coeff_t *c,
+                                 s_t     *s,
+                                 v_t     *v,
+                                 real    *rho,
+                                 coeff_t *gpu_c,
+                                 s_t     *gpu_s,
+                                 v_t     *gpu_v,
+                                 real    *gpu_rho);
+
+void copy_velocity_data_ToCPU ( v_t     *v,
+                                s_t     *s,
+                                coeff_t *c,
+                                real    *rho,
+                                v_t     *gpu_v,
+                                s_t     *gpu_s,
+                                coeff_t *gpu_c,
+                                real    *gpu_rho,
+                                const integer dimmx,
+                                const integer dimmy,
+                                const integer dimmz);
 
 void write_snapshot ( char          *folder,
                       const int     suffix,
@@ -72,6 +120,10 @@ void propagate_shot ( time_d        direction,
                      s_t           s,
                      coeff_t       coeffs,
                      real          *rho,
+                     v_t           gpu_v,
+                     s_t           gpu_s,
+                     coeff_t       gpu_coeffs,
+                     real          *gpu_rho,
                      int           timesteps,
                      int           ntbwd,
                      real          dt,

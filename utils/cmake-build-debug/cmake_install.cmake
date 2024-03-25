@@ -1,4 +1,4 @@
-# Install script for directory: F:/fwi/BSC-FWI-master/utils
+# Install script for directory: C:/Users/MyShirt/CLionProjects/FWI/utils
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,36 +39,36 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "F:/fwi/BSC-FWI-master/utils/generateModel.bin.exe")
+   "C:/Users/MyShirt/CLionProjects/FWI/utils/generateModel.bin.exe")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "F:/fwi/BSC-FWI-master/utils" TYPE EXECUTABLE FILES "F:/fwi/BSC-FWI-master/utils/cmake-build-debug/generateModel.bin.exe")
-  if(EXISTS "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateModel.bin.exe" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateModel.bin.exe")
+  file(INSTALL DESTINATION "C:/Users/MyShirt/CLionProjects/FWI/utils" TYPE EXECUTABLE FILES "C:/Users/MyShirt/CLionProjects/FWI/utils/cmake-build-debug/generateModel.bin.exe")
+  if(EXISTS "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateModel.bin.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateModel.bin.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "D:/Program Files (x86)/MinGW/mingw64/bin/strip.exe" "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateModel.bin.exe")
+      execute_process(COMMAND "D:/Program Files (x86)/MinGW/mingw64/bin/strip.exe" "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateModel.bin.exe")
     endif()
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "F:/fwi/BSC-FWI-master/utils/generateSchedule.bin.exe")
+   "C:/Users/MyShirt/CLionProjects/FWI/utils/generateSchedule.bin.exe")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "F:/fwi/BSC-FWI-master/utils" TYPE EXECUTABLE FILES "F:/fwi/BSC-FWI-master/utils/cmake-build-debug/generateSchedule.bin.exe")
-  if(EXISTS "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateSchedule.bin.exe" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateSchedule.bin.exe")
+  file(INSTALL DESTINATION "C:/Users/MyShirt/CLionProjects/FWI/utils" TYPE EXECUTABLE FILES "C:/Users/MyShirt/CLionProjects/FWI/utils/cmake-build-debug/generateSchedule.bin.exe")
+  if(EXISTS "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateSchedule.bin.exe" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateSchedule.bin.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "D:/Program Files (x86)/MinGW/mingw64/bin/strip.exe" "$ENV{DESTDIR}/F:/fwi/BSC-FWI-master/utils/generateSchedule.bin.exe")
+      execute_process(COMMAND "D:/Program Files (x86)/MinGW/mingw64/bin/strip.exe" "$ENV{DESTDIR}/C:/Users/MyShirt/CLionProjects/FWI/utils/generateSchedule.bin.exe")
     endif()
   endif()
 endif()
@@ -81,5 +81,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/fwi/BSC-FWI-master/utils/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/MyShirt/CLionProjects/FWI/utils/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

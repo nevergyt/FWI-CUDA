@@ -27,8 +27,8 @@ CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 //CUDA architectures
 CMAKE_CUDA_ARCHITECTURES:STRING=52
 
-//No help, variable specified on the command line.
-CMAKE_CUDA_COMPILER:UNINITIALIZED=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.3/bin/nvcc.exe
+//CUDA compiler
+CMAKE_CUDA_COMPILER:STRING=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.3/bin/nvcc.exe
 
 //Flags used by the CUDA compiler during all build types.
 CMAKE_CUDA_FLAGS:STRING=-D_WINDOWS -Xcompiler=" /EHsc"
@@ -76,7 +76,7 @@ CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/FWI
 CMAKE_LINKER:FILEPATH=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/link.exe
 
 //make program
-CMAKE_MAKE_PROGRAM:FILEPATH=F:/CLION2~1.1/bin/ninja/win/x64/ninja.exe
+CMAKE_MAKE_PROGRAM:FILEPATH=F:/CLion 2023.3.1/bin/ninja/win/x64/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

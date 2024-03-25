@@ -1,4 +1,4 @@
-"F:\CLion 2023.3.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/CLion 2023.3.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S F:\fwi\BSC-FWI-master\utils -B F:\fwi\BSC-FWI-master\utils\cmake-build-debug
+"F:\CLion 2023.3.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=F:/CLion 2023.3.1/bin/ninja/win/x64/ninja.exe" "-DCMAKE_CUDA_COMPILER=C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.3/bin/nvcc.exe" -G Ninja -S C:\Users\MyShirt\CLionProjects\FWI\utils -B C:\Users\MyShirt\CLionProjects\FWI\utils\cmake-build-debug
 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -12,6 +12,24 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 -- Input/Output is enabled.
 -- Default file system will be used for local I/O
 -- CMAKE_C_FLAGS are  -std=gnu99 -fopenmp
--- Configuring done (5.5s)
+-- Configuring done (0.0s)
+CMake Error: CMake can not determine linker language for target: generateSchedule.bin
 -- Generating done (0.0s)
--- Build files have been written to: F:/fwi/BSC-FWI-master/utils/cmake-build-debug
+CMake Error:
+  Running
+
+   'F:/CLion 2023.3.1/bin/ninja/win/x64/ninja.exe' '-C' 'C:/Users/MyShirt/CLionProjects/FWI/utils/cmake-build-debug' '-t' 'recompact'
+
+  failed with:
+
+   ninja: error: build.ninja:35: loading 'CMakeFiles/rules.ninja': 系统找不到指定的文件。
+
+  
+
+  include CMakeFiles/rules.ninja
+
+                                ^ near here
+
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

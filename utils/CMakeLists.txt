@@ -64,16 +64,16 @@ message(STATUS "CMAKE_C_FLAGS are ${CMAKE_C_FLAGS}")
 #--------------------------------------
 include_directories(
 	"../common/"
-	"../0_version_openmp/"
+	"../CUDA_fwi/"
 	"./")
 add_executable(generateModel.bin
 	"../common/fwi_constants.cu"
 	"../common/fwi_common.cu"
 	#"../common/fwi_comms.c"
-	"../0_version_openmp/fwi_propagator.c"
+	"../CUDA_fwi/fwi_propagator.cu"
 	"../common/fwi_kernel.cu"
 	"../common/fwi_sched.cu"
-	"../common/fwi_generatemodel.c")
+)
 
 target_link_libraries(generateModel.bin "-lm")
 install (TARGETS generateModel.bin DESTINATION "${CMAKE_SOURCE_DIR}/")
@@ -83,13 +83,13 @@ install (TARGETS generateModel.bin DESTINATION "${CMAKE_SOURCE_DIR}/")
 #---------------------------------------
 include_directories(
 	"../common/"
-	"../0_version_openmp/"
+	"../CUDA_fwi/"
 	"./")
 add_executable(generateSchedule.bin
 	"../common/fwi_constants.cu"
 	"../common/fwi_common.cu"
 	#"../common/fwi_comms.c"
-	"../0_version_openmp/fwi_propagator.c"
+	"../CUDA_fwi/fwi_propagator.cu"
 	"../common/fwi_kernel.cu"
 	"../common/fwi_sched.cu"
 	"../common/fwi_schedule.cu")

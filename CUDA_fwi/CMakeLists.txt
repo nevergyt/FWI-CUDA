@@ -7,7 +7,7 @@ include_directories(
         "../common/"
         "./")
 
-add_executable(FWI main.cu
+add_executable(FWI
         ./fwi_main.cu
         ../common/fwi_constants.cu
         ../common/fwi_common.cu

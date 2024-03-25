@@ -34,15 +34,22 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
     s_t     s;
     coeff_t coeffs;
 
+    real    *gpu_rho;
+    v_t     gpu_v;
+    s_t     gpu_s;
+    coeff_t gpu_coeffs;
+
     print_debug("The length of local arrays is " I " cells", numberOfCells);
 
     /* allocate shot memory */
     // alloc_memory_shot  ( numberOfCells, &coeffs, &s, &v, &rho);
     alloc_memory_shot  ( dimmz, dimmx, (nyf - ny0), &coeffs, &s, &v, &rho);
+    alloc_memory_shot_gpu( dimmz, dimmx, (nyf - ny0), &gpu_coeffs, &gpu_s, &gpu_v, &gpu_rho);
 
     /* load initial model from a binary file */
     // load_initial_model ( waveletFreq, numberOfCells, &coeffs, &s, &v, rho);
     load_local_velocity_model ( waveletFreq, dimmz, dimmx, ny0, nyf, &coeffs, &s, &v, rho);
+    copy_velocity_model_ToGpu(dimmz, dimmx, ny0, nyf, &coeffs, &s, &v, rho,&gpu_coeffs, &gpu_s, &gpu_v, gpu_rho);
 
     print_debug("dimmx %d,dimmy %d,dimmz %d,numberOfCells %d,numberOfCells * sizeof(real) * WRITTEN_FIELDS %lld",dimmx,dimmy,dimmz,numberOfCells,numberOfCells * sizeof(real) * WRITTEN_FIELDS);
     /* Allocate memory for IO buffer */
@@ -59,7 +66,7 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
         start_t = dtime();
 
         propagate_shot ( FORWARD,
-                         v, s, coeffs, rho,
+                         v, s, coeffs, rho,gpu_v,gpu_s,gpu_coeffs,gpu_rho,
                          forw_steps, back_steps -1,
                          dt,dz,dx,dy,
                          nz0, nzf, nx0, nxf, ny0, nyf,
@@ -75,7 +82,7 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
         start_t = dtime();
         
         propagate_shot ( BACKWARD,
-                         v, s, coeffs, rho,
+                         v, s, coeffs, rho,gpu_v,gpu_s,gpu_coeffs,gpu_rho,
                          forw_steps, back_steps -1,
                          dt,dz,dx,dy,
                          nz0, nzf, nx0, nxf, ny0, nyf,
@@ -88,10 +95,7 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
 
         print_stats("Backward propagation finished in %lf seconds", end_t - start_t );
 
-#ifdef DO_NOT_PERFORM_IO
-        print_info("Warning: we are not creating gradient nor preconditioner "
-                   "fields, because IO is not enabled for this execution" );
-#else
+
         char fnameGradient[300];
         char fnamePrecond[300];
         sprintf( fnameGradient, "%s/gradient_%05d.dat", shotfolder, shotid );
@@ -108,7 +112,7 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
 
         safe_fclose( fnameGradient, fgradient, (char *)__FILE__, __LINE__ );
         safe_fclose( fnamePrecond , fprecond , (char *)__FILE__, __LINE__ );
-#endif
+
 
         break;
     }
@@ -117,7 +121,7 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
         start_t = dtime();
 
         propagate_shot ( FWMODEL,
-                         v, s, coeffs, rho,
+                         v, s, coeffs, rho,gpu_v,gpu_s,gpu_coeffs,gpu_rho,
                          forw_steps, back_steps -1,
                          dt,dz,dx,dy,
                          nz0, nzf, nx0, nxf, ny0, nyf,
@@ -141,15 +145,13 @@ void kernel( propagator_t propagator, real waveletFreq, int shotid, char* output
 
     // liberamos la memoria alocatada en el shot
     free_memory_shot  ( &coeffs, &s, &v, &rho);
+    free_memory_shot_gpu( &gpu_coeffs,&gpu_s,&gpu_v,&gpu_rho);
+
     __free( io_buffer );
 };
 
 void gather_shots( char* outputfolder, const real waveletFreq, const int nshots, const int numberOfCells )
 {
-#ifdef DO_NOT_PERFORM_IO
-    print_info("Warning: we are not gathering the results because the IO is disabled "
-               "for this execution");
-#else
     /* ---------  GLOBAL PRECONDITIONER ACCUMULATION --------- */
     print_info("Gathering local preconditioner fields");
 
@@ -177,9 +179,6 @@ void gather_shots( char* outputfolder, const real waveletFreq, const int nshots,
         safe_fread ( readbuffer, sizeof(real), numberOfCells * WRITTEN_FIELDS, freadfile, (char *)__FILE__, __LINE__ );
 
         #pragma omp parallel for
-#ifdef __INTEL_COMPILER
-        #pragma simd
-#endif
         for( int i = 0; i < numberOfCells * WRITTEN_FIELDS; i++)
             sumbuffer[i] += readbuffer[i];
 
@@ -218,9 +217,7 @@ void gather_shots( char* outputfolder, const real waveletFreq, const int nshots,
         safe_fread ( readbuffer, sizeof(real), numberOfCells * WRITTEN_FIELDS, freadfile, (char *)__FILE__, __LINE__ );
 
         #pragma omp parallel for
-#ifdef __INTEL_COMPILER
-        #pragma simd
-#endif
+
         for( int i = 0; i < numberOfCells * WRITTEN_FIELDS; i++)
             sumbuffer[i] += readbuffer[i];
 
@@ -241,7 +238,6 @@ void gather_shots( char* outputfolder, const real waveletFreq, const int nshots,
 
     __free(  sumbuffer);
     __free( readbuffer);
-#endif
 };
 
 int main(int argc, const char* argv[])
@@ -295,8 +291,7 @@ int main(int argc, const char* argv[])
                 kernel( RTM_KERNEL, waveletFreq, shot, S.outputfolder, shotfolder);
 
                 print_info("\tGradient loop processed for %d-th shot", shot);
-                
-                //update_shot()
+
             }
 
             gather_shots( S.outputfolder, waveletFreq, S.nshots, numberOfCells );
